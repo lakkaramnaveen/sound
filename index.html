@@ -24,14 +24,12 @@
       let shaking = false;
       console.log(alienSound);
       clickMe.onmousedown = () => {
-        clickMe.style.backgroundColor = "red";
         alienSound.currentTime = 0;
         alienSound.play();
         shaking = true;
       };
 
       clickMe.onended = () => {
-        console.log("The End");
         shaking = false;
       };
 
@@ -45,6 +43,9 @@
           clickMe.style.left = `${x}%`;
           clickMe.style.top = `${y}%`;
           shaking -= deltaTime;
+        } else {
+          clickMe.style.left = "50%";
+          clickMe.style.top = "50%";
         }
         window.requestAnimationFrame(frame);
       }
